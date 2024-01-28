@@ -4,5 +4,6 @@
   "sourceRoot": "microservices/graphql-auth/src",
   "compilerOptions": {
     "deleteOutDir": true
-  }
+  },
+  "entryFile": "/graphql-auth/src/main.js"
 }
