@@ -5,11 +5,13 @@
 type CreateContact {
   name: String!
   cellphone: String!
+  email: String
 }
 
 type ContactResponse {
   name: String!
   cellphone: String!
+  email: String
 }
 
 type ContactsResponseOutput {
@@ -20,6 +22,7 @@ type ContactsResponseOutput {
 input SendContactInput {
   name: String!
   cellphone: String!
+  email: String = null
 }
 
 type Query {

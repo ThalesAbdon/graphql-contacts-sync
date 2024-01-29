@@ -10,6 +10,9 @@ import { IContact } from '../interfaces/IContact.interface';
   
     @Field()
     cellphone: string;
+
+    @Field()
+    email: string;
   }
 
   export class ContactsEntity {

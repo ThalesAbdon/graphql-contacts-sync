@@ -22,7 +22,12 @@ export class CreateContacts1706488170913 implements MigrationInterface {
                   name: "cell_phone",
                   type: "varchar(20)",
                   isUnique: true
-                }
+                },
+                {
+                  name: "email",
+                  type: "varchar(100)",
+                  isNullable: true,
+                },
               ]
             })
           );

@@ -12,5 +12,10 @@ export const ContactSchema = new mongoose.Schema({
     max: 13,
     min: 12,
     required: true,
+  },
+  email: {
+    type: String,
+    max: 100,
+    required: false,
   }
 });

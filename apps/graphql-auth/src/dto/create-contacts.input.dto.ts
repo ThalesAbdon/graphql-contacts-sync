@@ -1,17 +1,19 @@
-import { Field, InputType, ObjectType, Scalar } from "@nestjs/graphql";
+import { Field, InputType, ObjectType} from "@nestjs/graphql";
 import { ContactsEntity } from "../entities/contacts";
-import { IsArray, IsString, Matches, Validate } from "class-validator";
+import { IsArray} from "class-validator";
+
 
 @InputType()
 @ObjectType('CreateContact')
 export class SendContactInput extends ContactsEntity{
     @Field()
-    @IsString()
     name: string;
   
     @Field()
-    @IsString()
     cellphone: string; 
+
+    @Field({nullable: true, defaultValue: null})
+    email?: string
 }
 
 @InputType()

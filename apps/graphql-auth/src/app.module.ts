@@ -13,7 +13,7 @@ import { RabbitMQService } from './services/rabbitmq.service';
 @Module({
   imports: [
     
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot<ApolloDriverConfig>({ 
     driver: ApolloDriver,
     autoSchemaFile: join(process.cwd(), '/apps/graphql-auth/src/schema.gql'),
   }),
@@ -45,6 +45,7 @@ import { RabbitMQService } from './services/rabbitmq.service';
     connectionInitOptions: { wait: true },
     name: process.env.SERVICE
   }),
+  
     ],
   controllers: [],
   providers: [AuthGuard,ContactResolver,RabbitMQService,SendContactsUsecase],

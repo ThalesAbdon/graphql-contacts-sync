@@ -7,7 +7,11 @@ export class ContactOutput{
 
     @Field()
     cellphone: string; 
+
+    @Field({nullable: true, defaultValue: null})
+    email?: string;
 }
+
 
 @ObjectType('ContactsResponseOutput')
 export class ContactsResponseOutput {

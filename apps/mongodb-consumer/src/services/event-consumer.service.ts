@@ -17,8 +17,6 @@ export class EventConsumerService{
           const contactExist = await this.contactService.findOne(message.cellphone)
           if(!contactExist)
             await this.contactService.create(message)
-          //ToDo: tratar os clientes que já existem na base (número de telefone igual)
-          // Salvar em um arquivo do S3, Mandar para uma outra fila...  
         }
   }
 }

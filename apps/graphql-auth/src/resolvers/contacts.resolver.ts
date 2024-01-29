@@ -5,6 +5,7 @@ import { UseGuards } from '@nestjs/common';
 import { ContactsResponseOutput } from '../dto/create-contacts.output.dto';
 import { AuthGuard } from '../config/auth/auth.guard';
 import { SendContactsUsecase } from '../usecases/send-contacts.usecase';
+import { validate } from 'class-validator';
 
 @Resolver(ContactsEntity)
 export class ContactResolver {
