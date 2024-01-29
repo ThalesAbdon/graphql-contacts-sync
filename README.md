@@ -155,7 +155,9 @@ No site, apague as chaves sub e name que estão dentro do Payload na área de De
 
 tenha certeza de apagar o que está dentro do field na área de VERIFY SIGNATURE: your-256-bit-secret.
 cole a nossa string da JWT_SECRET, Você terá algo assim:
+![auth](https://raw.githubusercontent.com/ThalesAbdon/graphql-contacts-sync/main/images/jwt.png)
 
+Agora basta copiar o que foi gerado na área de Encoded e usar no headers.
 
 ### Mutation sendContactsMongodb
 Exemplo de Input válido:
