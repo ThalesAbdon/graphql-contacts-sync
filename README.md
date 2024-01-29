@@ -120,6 +120,10 @@ Converta o arquivo da pasta script em executavél com o seguinte comando:
 ```
 chmod +x ./scripts/docker.sh
 ```
+Execute o comando:
+```
+./scripts/docker.sh
+```
 ### 5. Execute as migrations do TypeORM
 ```
 npm run migration:run
