@@ -14,6 +14,7 @@ export class EventConsumerService{
   })
   async saveContacts(messages: IMessage[]): Promise<void> {
     for(const message of messages){
+      message.name = message.name.toUpperCase()
       if(message.cellphone.length == 13){
         message.cellphone = message.cellphone.replace(/(\d{2})(\d{2})(\d{5})(\d{4})/, "+$1 ($2) $3-$4");
       }else{
@@ -23,8 +24,6 @@ export class EventConsumerService{
       const contactExist = await this.contactService.findOne(message.cellphone)
       if(!contactExist)
         await this.contactService.create(message)
-      //ToDo: tratar os clientes que já existem na base (número de telefone igual)
-      // Salvar em um arquivo do S3, Mandar para uma outra fila...  
     }
   }
 }
