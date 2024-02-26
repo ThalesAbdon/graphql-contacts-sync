@@ -17,5 +17,5 @@ export const ContactSchema = new mongoose.Schema({
     type: String,
     max: 100,
     required: false,
-  }
+  },
 });

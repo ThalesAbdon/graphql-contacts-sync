@@ -5,17 +5,17 @@ import { ContactEntity } from '../entities/contact.entities';
 
 @Injectable()
 export class ContactService {
+  constructor(
+    @InjectRepository(ContactEntity)
+    private contactRepository: Repository<ContactEntity>,
+  ) {}
 
-    constructor(
-        @InjectRepository(ContactEntity) private contactRepository: Repository<ContactEntity>,
-    ) { }
+  create(contact: Partial<ContactEntity>) {
+    const newContact = this.contactRepository.create({ ...contact });
+    return this.contactRepository.save(newContact);
+  }
 
-    create(contact: Partial<ContactEntity>) {
-        const newContact = this.contactRepository.create({ ...contact});
-        return this.contactRepository.save(newContact);
-    }
-
-    findOne(cellphone: string) {
-        return this.contactRepository.findOne({where:{cellphone}})
-    }
+  findOne(cellphone: string) {
+    return this.contactRepository.findOne({ where: { cellphone } });
+  }
 }

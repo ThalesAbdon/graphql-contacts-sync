@@ -8,33 +8,30 @@ import { ContactEntity } from './entities/contact.entities';
 
 @Module({
   imports: [
-  TypeOrmModule.forFeature([ContactEntity]),  
-  TypeOrmModule.forRoot(config),
-  RabbitMQModule.forRoot(RabbitMQModule, {
-    queues: [
-      {
-        name: process.env.QUEUE,
-        exchange: process.env.EXCHANGE,
-        routingKey: [
-                  process.env.ROUTE_MONGO,
-                  process.env.ROUTE_MYSQL,
-        ],
-        createQueueIfNotExists: false,
-      }
-    ],
-    exchanges: [
-      {
-        name: process.env.EXCHANGE,
-        type: 'topic',
-        createExchangeIfNotExists: true,
-      },
-    ],
-    uri: process.env.AMQP,
-    enableControllerDiscovery: true,
-    connectionInitOptions: { wait: true },
-    name: process.env.SERVICE
-  }),
-    ],
-  providers: [ContactService,EventConsumerService],
+    TypeOrmModule.forFeature([ContactEntity]),
+    TypeOrmModule.forRoot(config),
+    RabbitMQModule.forRoot(RabbitMQModule, {
+      queues: [
+        {
+          name: process.env.QUEUE,
+          exchange: process.env.EXCHANGE,
+          routingKey: [process.env.ROUTE_MONGO, process.env.ROUTE_MYSQL],
+          createQueueIfNotExists: false,
+        },
+      ],
+      exchanges: [
+        {
+          name: process.env.EXCHANGE,
+          type: 'topic',
+          createExchangeIfNotExists: true,
+        },
+      ],
+      uri: process.env.AMQP,
+      enableControllerDiscovery: true,
+      connectionInitOptions: { wait: true },
+      name: process.env.SERVICE,
+    }),
+  ],
+  providers: [ContactService, EventConsumerService],
 })
 export class AppModule {}

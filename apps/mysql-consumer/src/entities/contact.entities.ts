@@ -5,7 +5,7 @@ export class ContactEntity {
   id: number;
   @Column()
   name: string;
-  @Column({name:'cell_phone'})
+  @Column({ name: 'cell_phone' })
   cellphone: string;
   @Column()
   email?: string;

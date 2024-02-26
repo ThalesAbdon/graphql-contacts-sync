@@ -16,8 +16,7 @@ export class ContactsService {
   }
 
   async findOne(cellphone: string): Promise<Contact> {
-    const contact = await this.contactModel.findOne({cellphone})
+    const contact = await this.contactModel.findOne({ cellphone });
     return contact;
   }
-
 }
