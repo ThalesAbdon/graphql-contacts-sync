@@ -1,6 +1,5 @@
 export interface IMessage {
-    name: string;
-    cellphone: string; 
-    email?: string;
-  }
-  
+  name: string;
+  cellphone: string;
+  email?: string;
+}
