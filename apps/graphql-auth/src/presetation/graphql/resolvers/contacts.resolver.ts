@@ -1,10 +1,10 @@
 import { Resolver, Mutation, Query, Args } from '@nestjs/graphql';
-import { ContactsEntity } from '../entities/contacts';
-import { Contacts } from '../dto/create-contacts.input.dto';
+import { ContactsEntity } from '../../../domain/entities/contacts';
+import { Contacts } from '../../../domain/validators/dto/create-contacts.input.dto';
 import { UseGuards } from '@nestjs/common';
-import { ContactsResponseOutput } from '../dto/create-contacts.output.dto';
-import { AuthGuard } from '../config/auth/auth.guard';
-import { SendContactsUsecase } from '../usecases/send-contacts.usecase';
+import { ContactsResponseOutput } from '../../../domain/validators/dto/create-contacts.output.dto';
+import { AuthGuard } from '../../../config/auth/auth.guard';
+import { SendContactsUsecase } from '../../../domain/usecases/send-contacts.usecase';
 
 @Resolver(ContactsEntity)
 export class ContactResolver {
