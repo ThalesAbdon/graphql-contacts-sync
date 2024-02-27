@@ -1,7 +1,6 @@
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 
-
 describe('GraphqlAuthController (e2e)', () => {
   let app: INestApplication;
 
