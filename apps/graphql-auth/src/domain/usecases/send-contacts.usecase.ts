@@ -28,7 +28,11 @@ export class SendContactsUsecase implements IUsecase<ContactsResponseOutput> {
         invalid.push({ ...contact });
       }
     });
-    await this.rabbitMQService.send(routingKey, valid);
+
+    if (valid.length > 0) {
+      await this.rabbitMQService.send(routingKey, valid);
+    }
+
     return {
       valid: valid,
       invalid: invalid,
