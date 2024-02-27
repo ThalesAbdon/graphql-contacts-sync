@@ -88,7 +88,7 @@
       "ts"
     ],
     "rootDir": ".",
-    "testRegex": ".*\\.spec\\.ts$",
+    "testRegex": ".*\\.(spec|test)\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
@@ -98,7 +98,26 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
-    ]
+      "<rootDir>/apps/graphql-auth"
+    ],
+    "modulePathIgnorePatterns": [
+      ".*\\.module\\.ts$",
+      ".*\\main\\.ts$",
+      ".*\\.e2e-spec\\.ts$",
+      "depedencie\\.ts$"
+    ],
+    "coveragePathIgnorePatterns": [
+      "config",
+      "validators",
+      "depedencies"
+    ],
+    "coverageThreshold": {
+      "global": {
+          "branches": 0,
+          "functions": 0,
+          "lines": 0,
+          "statements": 0
+      }
+  }
   }
 }
