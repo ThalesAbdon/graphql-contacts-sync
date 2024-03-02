@@ -99,13 +99,15 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/graphql-auth"
+      "<rootDir>/apps/graphql-auth",
+      "<rootDir>/apps/mongodb-consumer"
     ],
     "modulePathIgnorePatterns": [
       ".*\\.module\\.ts$",
       ".*\\main\\.ts$",
       ".*\\.e2e-spec\\.ts$",
-      "depedencie\\.ts$"
+      "depedencie\\.ts$",
+      "provider\\.ts$"
     ],
     "coveragePathIgnorePatterns": [
       "config",

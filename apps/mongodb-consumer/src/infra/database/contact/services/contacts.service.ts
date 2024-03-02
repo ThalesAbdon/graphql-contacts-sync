@@ -12,11 +12,7 @@ export class ContactsService {
   ) {}
 
   async create(createContactDto: IMessage): Promise<Contact> {
-    try {
-      return await this.contactModel.create(createContactDto);
-    } catch (err) {
-      // to do: send dlq
-    }
+    return await this.contactModel.create(createContactDto);
   }
 
   async findOne(cellphone: string): Promise<Contact> {
