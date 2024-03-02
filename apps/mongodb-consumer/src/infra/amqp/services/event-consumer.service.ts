@@ -1,11 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { RabbitRPC } from '@golevelup/nestjs-rabbitmq';
-import { ContactsService } from './contacts.service';
-import { IMessage } from '../interfaces/IMessage.interface';
+import { ContactsService } from '../../database/contact/services/contacts.service';
+import { IMessage } from '../../../shared/interfaces/IMessage.interface';
 
 @Injectable()
 export class EventConsumerService {
-  constructor(private readonly contactService: ContactsService) {}
+  constructor(
+    @Inject(ContactsService) private readonly contactService: ContactsService,
+  ) {}
 
   @RabbitRPC({
     exchange: process.env.EXCHANGE,
