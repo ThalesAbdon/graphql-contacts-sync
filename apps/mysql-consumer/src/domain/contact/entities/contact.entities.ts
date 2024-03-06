@@ -9,4 +9,8 @@ export class ContactEntity {
   cellphone: string;
   @Column()
   email?: string;
+
+  constructor(input: Partial<ContactEntity>) {
+    Object.assign(this, input);
+  }
 }

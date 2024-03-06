@@ -1,12 +1,15 @@
-import { SendContactsUsecase } from '../../../../src/domain/usecases/send-contacts.usecase';
+import { SendContactsUsecase } from '@graphql-auth/src/domain/usecases/send-contacts.usecase';
 import {
   ContactResolver,
   MutationDecorator,
   healthCheckQuery,
 } from '../resolvers/contacts.resolver';
-import { rabbitMQServiceMock } from '../../../shared/__tests__/mocks';
-import { validContacts, contactProperty } from '../../../shared/__tests__/data';
-import { ContactsResponseOutput } from '../../../domain/validators/dto/create-contacts.output.dto';
+import { rabbitMQServiceMock } from '@graphql-auth/src/shared/__tests__/mocks';
+import {
+  contactProperty,
+  validContacts,
+} from '@graphql-auth/src/shared/__tests__/data';
+import { ContactsResponseOutput } from '@graphql-auth/src/domain/validators/dto/create-contacts.output.dto';
 
 describe(ContactResolver, () => {
   let contactResolver: ContactResolver;

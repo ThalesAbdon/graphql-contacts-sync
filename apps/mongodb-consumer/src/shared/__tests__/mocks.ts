@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
-import { ContactsService } from '../../infra/database/contact/services/contacts.service';
-import { Contact } from '../../infra/database/contact/schemas/contact.schema';
+import { ContactsService } from '@mongodb-consumer/src/infra/database/contact/services/contacts.service';
+import { Contact } from '@mongodb-consumer/src/infra/database/contact/schemas/contact.schema';
 
 export const contactModelMock: Pick<
   Model<Contact>,

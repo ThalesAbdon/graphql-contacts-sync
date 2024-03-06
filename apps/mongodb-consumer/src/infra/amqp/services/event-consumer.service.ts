@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { RabbitRPC } from '@golevelup/nestjs-rabbitmq';
-import { ContactsService } from '../../database/contact/services/contacts.service';
-import { IMessage } from '../../../shared/interfaces/IMessage.interface';
+import { IMessage } from '@mongodb-consumer/src/shared/interfaces/IMessage.interface';
+import { ContactsService } from '@mongodb-consumer/src/infra/database/contact/services/contacts.service';
 
 @Injectable()
 export class EventConsumerService {

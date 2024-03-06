@@ -6,7 +6,7 @@ export const rabbitMQDependency = [
       {
         name: process.env.QUEUE,
         exchange: process.env.EXCHANGE,
-        routingKey: [process.env.ROUTE_MONGO],
+        routingKey: [process.env.ROUTE_MYSQL],
         createQueueIfNotExists: false,
       },
     ],

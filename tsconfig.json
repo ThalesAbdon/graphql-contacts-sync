@@ -18,9 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      // "@src/*": [
-      //   "graphql-auth/src/*"
-      // ]
+      "@graphql-auth/src/*": ["apps/graphql-auth/src/*"],
+      "@mongodb-consumer/src/*": ["apps/mongodb-consumer/src/*",],
+      "@mysql-consumer/src/*": ["apps/mysql-consumer/src/*"
+      ]
     }
   }
 }

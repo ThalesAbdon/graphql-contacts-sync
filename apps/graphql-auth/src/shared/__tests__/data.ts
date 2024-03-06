@@ -1,4 +1,4 @@
-import { IContact } from '../../domain/interfaces/IContact.interface';
+import { IContact } from '@graphql-auth/src/domain/interfaces/IContact.interface';
 
 export const contactProperty: IContact = {
   cellphone: '15988888888',

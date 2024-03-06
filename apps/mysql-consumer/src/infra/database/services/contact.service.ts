@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ContactEntity } from '@mysql-consumer/src/domain/contact/entities/contact.entities';
 import { Repository } from 'typeorm';
-import { ContactEntity } from '../entities/contact.entities';
 
 @Injectable()
 export class ContactService {
   constructor(
     @InjectRepository(ContactEntity)
-    private contactRepository: Repository<ContactEntity>,
+    private contactRepository: Pick<
+      Repository<ContactEntity>,
+      'save' | 'findOne' | 'create'
+    >,
   ) {}
 
   create(contact: Partial<ContactEntity>) {

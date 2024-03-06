@@ -1,9 +1,9 @@
 import { registerAs } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { ContactEntity } from '@mysql-consumer/src/domain/contact/entities/contact.entities';
 import { config as dotenvConfig } from 'dotenv';
 import { join } from 'path';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { ContactEntity } from '../entities/contact.entities';
 
 dotenvConfig({ path: '.env' });
 export const config: TypeOrmModuleOptions = {

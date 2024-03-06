@@ -1,10 +1,10 @@
 import { Resolver, Mutation, Query, Args } from '@nestjs/graphql';
-import { ContactsEntity } from '../../../domain/entities/contacts';
-import { Contacts } from '../../../domain/validators/dto/create-contacts.input.dto';
 import { UseGuards } from '@nestjs/common';
-import { ContactsResponseOutput } from '../../../domain/validators/dto/create-contacts.output.dto';
-import { AuthGuard } from '../../../config/auth/auth.guard';
-import { SendContactsUsecase } from '../../../domain/usecases/send-contacts.usecase';
+import { ContactsResponseOutput } from '@graphql-auth/src/domain/validators/dto/create-contacts.output.dto';
+import { SendContactsUsecase } from '@graphql-auth/src/domain/usecases/send-contacts.usecase';
+import { ContactsEntity } from '@graphql-auth/src/domain/entities/contacts';
+import { AuthGuard } from '@graphql-auth/src/config/auth/auth.guard';
+import { Contacts } from '@graphql-auth/src/domain/validators/dto/create-contacts.input.dto';
 
 export const healthCheckQuery = () => String;
 export const MutationDecorator = () => ContactsResponseOutput;

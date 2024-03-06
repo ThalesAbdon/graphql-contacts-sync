@@ -1,5 +1,5 @@
+import { amqpConnection } from '@graphql-auth/src/shared/__tests__/mocks';
 import { RabbitMQService } from '../services/rabbitmq.service';
-import { amqpConnection } from '../../../shared/__tests__/mocks';
 
 describe(RabbitMQService.name, () => {
   let rabbitMQService: RabbitMQService;

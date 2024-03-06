@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { Contacts } from '../validators/dto/create-contacts.input.dto';
-import { IUsecase } from '../interfaces/IUsecase.interface';
+import { RabbitMQService } from '@graphql-auth/src/infra/amqp/services/rabbitmq.service';
 import {
   ContactOutput,
   ContactsResponseOutput,
 } from '../validators/dto/create-contacts.output.dto';
-import { RabbitMQService } from '../../infra/amqp/services/rabbitmq.service';
+import { IUsecase } from '../interfaces/IUsecase.interface';
+import { Contacts } from '../validators/dto/create-contacts.input.dto';
 
 @Injectable()
 export class SendContactsUsecase implements IUsecase<ContactsResponseOutput> {

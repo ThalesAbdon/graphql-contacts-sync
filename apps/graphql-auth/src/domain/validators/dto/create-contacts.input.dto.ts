@@ -1,5 +1,5 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { ContactEntity } from '../../entities/contacts';
+import { ContactEntity } from '@graphql-auth/src/domain/entities/contacts';
 import { IsArray } from 'class-validator';
 
 @InputType()

@@ -1,5 +1,5 @@
 import { AmqpConnection } from '@golevelup/nestjs-rabbitmq';
-import { RabbitMQService } from '../../infra/amqp/services/rabbitmq.service';
+import { RabbitMQService } from '@graphql-auth/src/infra/amqp/services/rabbitmq.service';
 
 export const amqpConnection: Pick<AmqpConnection, 'publish'> = Object.freeze({
   publish: jest.fn(),

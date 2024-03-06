@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-import { ContactsService } from '../contacts.service';
-import { contactModelMock } from '@mongodb-consumer/src/shared/__tests__/mocks';
+import { ContactService } from '../contact.service';
+import { contactModelMock } from '@mysql-consumer/src/shared/__tests__/mocks';
 
-describe(ContactsService.name, () => {
-  let contactsService: ContactsService;
+describe(ContactService.name, () => {
+  let contactsService: ContactService;
   const message = {
     name: 'unit test',
     cellphone: '558999999999',
@@ -11,7 +10,7 @@ describe(ContactsService.name, () => {
   };
 
   beforeAll(() => {
-    contactsService = new ContactsService(contactModelMock);
+    contactsService = new ContactService(contactModelMock);
   });
 
   it('should be contactsService defined', () => {
@@ -20,29 +19,34 @@ describe(ContactsService.name, () => {
 
   it('should be execute create method', async () => {
     const spyCreate = jest.spyOn(contactModelMock, 'create').mockReturnValue({
-      _id: new mongoose.Types.ObjectId(),
+      id: 2,
+      ...message,
+    } as any);
+
+    const spySave = jest.spyOn(contactModelMock, 'save').mockReturnValue({
+      id: 2,
       ...message,
     } as any);
 
     const data = await contactsService.create(message);
 
     expect(spyCreate).toHaveBeenCalledTimes(1);
-    expect(data._id).toBeDefined();
+    expect(spySave).toHaveBeenCalledTimes(1);
+    expect(data.id).toBeDefined();
     expect(data.name).toBeDefined();
     expect(data.email).toBeDefined();
   });
 
   it('should be execute findOne method', async () => {
-    const _id = new mongoose.Types.ObjectId();
     const spyCreate = jest.spyOn(contactModelMock, 'findOne').mockReturnValue({
-      _id,
+      id: 1,
       ...message,
     } as any);
 
     const data = await contactsService.findOne(message.cellphone);
 
     expect(spyCreate).toHaveBeenCalledTimes(1);
-    expect(data._id).toBeDefined();
+    expect(data.id).toBeDefined();
     expect(data.name).toBe(message.name);
     expect(data.cellphone).toBe(message.cellphone);
   });

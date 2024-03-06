@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { IMessage } from '../../../../shared/interfaces/IMessage.interface';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import { Contact } from '../schemas/contact.schema';
 import { InjectModel } from '@nestjs/mongoose';
+import { IMessage } from '@mongodb-consumer/src/shared/interfaces/IMessage.interface';
 
 @Injectable()
 export class ContactsService {
@@ -12,6 +12,7 @@ export class ContactsService {
   ) {}
 
   async create(createContactDto: IMessage): Promise<Contact> {
+    createContactDto['_id'] = new mongoose.Types.ObjectId();
     return await this.contactModel.create(createContactDto);
   }
 
