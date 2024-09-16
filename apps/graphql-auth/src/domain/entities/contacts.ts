@@ -11,9 +11,18 @@ export class ContactEntity implements IContact {
 
   @Field()
   email: string;
+
+  constructor(property: ContactEntity) {
+    Object.assign(this, property);
+  }
 }
 
+export const returnField = () => ContactEntity;
 export class ContactsEntity {
-  @Field(() => [ContactEntity])
+  @Field(returnField)
   contacts: ContactEntity[];
+
+  constructor(property: ContactsEntity) {
+    Object.assign(this, property);
+  }
 }

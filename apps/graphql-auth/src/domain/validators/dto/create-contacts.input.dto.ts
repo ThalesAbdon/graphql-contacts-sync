@@ -1,10 +1,10 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { ContactsEntity } from '../../entities/contacts';
+import { ContactEntity } from '@graphql-auth/src/domain/entities/contacts';
 import { IsArray } from 'class-validator';
 
 @InputType()
 @ObjectType('CreateContact')
-export class SendContactInput extends ContactsEntity {
+export class SendContactInput extends ContactEntity {
   @Field()
   name: string;
 
@@ -12,7 +12,11 @@ export class SendContactInput extends ContactsEntity {
   cellphone: string;
 
   @Field({ nullable: true, defaultValue: null })
-  email?: string;
+  email: string;
+
+  constructor(property: SendContactInput) {
+    super(property);
+  }
 }
 
 @InputType()
@@ -21,4 +25,8 @@ export class Contacts {
   @Field(() => [SendContactInput])
   @IsArray()
   contacts: SendContactInput[];
+
+  constructor(property: Contacts) {
+    Object.assign(this, property);
+  }
 }

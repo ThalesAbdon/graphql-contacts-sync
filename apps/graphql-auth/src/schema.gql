@@ -2,12 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type CreateContact {
-  name: String!
-  cellphone: String!
-  email: String
-}
-
 type ContactResponse {
   name: String!
   cellphone: String!
@@ -17,6 +11,12 @@ type ContactResponse {
 type ContactsResponseOutput {
   valid: [ContactResponse!]!
   invalid: [ContactResponse!]!
+}
+
+type CreateContact {
+  name: String!
+  cellphone: String!
+  email: String
 }
 
 input SendContactInput {

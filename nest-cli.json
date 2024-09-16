@@ -5,6 +5,7 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
+    "webpackConfigPath": "./webpack.config.js",
     "tsConfigPath": "apps/graphql-contacts-sync/tsconfig.app.json"
   },
   "entryFile": "/graphql-auth/src/main.js",
