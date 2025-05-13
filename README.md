@@ -57,7 +57,7 @@ O desafio é receber contatos de celulares via API e inseri-los nos bancos de da
   - SQL de criação da tabela em anexo.
 
 ## Arquitetura
-![Desenho da Arquitetura](https://raw.githubusercontent.com/ThalesAbdon/graphql-contacts-sync/3acbf705c9d4847396e2ed8c0f119c30bbcdb07b/images/arc.svg)
+![Arquitetura](https://raw.githubusercontent.com/ThalesAbdon/graphql-contacts-sync/3acbf705c9d4847396e2ed8c0f119c30bbcdb07b/images/arc.svg)
 
 Utilizei Rabbitmq para atuar como __Message broker__ . Garantindo assim assíncronicidade, pois caso algum serviço de __consumer__ esteja fora do ar, mesmo assim será possível consumir os dados enviados pois estarão salvos na fila, evitando assim perda de dados.
 
